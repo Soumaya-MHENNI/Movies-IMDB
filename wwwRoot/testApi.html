@@ -1,0 +1,27 @@
+<html>
+
+<body>
+    <script>
+        function getApiMovie(id) {
+
+            fetch('/movies/:' + id)
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (resultJson) {
+                    console.log(resultJson[0].Director);
+                    document.getElementById("movie-card-details").innerHTML = resultJson[0].Director;
+                })
+                .catch(function (err) {
+                    console.log("Something went wrong!", err);
+                });
+
+        }
+    </script>
+    <a href="javascript:getApiMovie('6398842b7c3dd407d9398a26')">Test</a>
+    <!-- <a href="#" onclick="getApiMovie()">Test</a> -->
+</body>
+<div id="movieDetails">
+    
+</div>
+</html>
